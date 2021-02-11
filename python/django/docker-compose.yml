@@ -1,0 +1,15 @@
+
+version: '3.7'
+
+services:
+  backend:
+    build: silobytes
+    restart: ${RESTART:-no}
+    volumes:
+        - ./:/app
+    working_dir: /app/silobytes
+    ports:
+        - "${BACKEND_HOST_PORT}8000"
+    stdin_open: true
+    tty: true
+    command: ${RUNSERVER:-/bin/bash}
