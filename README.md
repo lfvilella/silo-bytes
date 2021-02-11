@@ -17,4 +17,4 @@ The object is to implement the silos control system in python and java languages
 
 ### Simple Data Modeling
 
-![Screen Shot 2021-02-10 at 22 47 39](https://user-images.githubusercontent.com/45940140/107594916-febcab80-6bf1-11eb-8dbb-815f37fb9ec7.png)
+![Screen Shot 2021-02-10 at 23 01 22](https://user-images.githubusercontent.com/45940140/107595602-ebaadb00-6bf3-11eb-9351-9e77bd002421.png)
