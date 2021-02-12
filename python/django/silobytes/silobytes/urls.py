@@ -16,11 +16,19 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path
+
+
+def go_to_admin(request):
+    return redirect('admin/')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', go_to_admin),
 ]
+
 
 admin.site.site_header = 'Silo Bytes'
 admin.site.index_title = 'Administration'
