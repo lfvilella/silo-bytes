@@ -26,10 +26,10 @@ class TestStorage(base.BaseTest):
 
     def test_update_with_withdrawal_date_less_than_entry_date_raises(self):
         now = datetime.datetime.now(tz=pytz.utc)
-        entry_date = now - datetime.timedelta(hours=10)
+        entry_date = now - datetime.timedelta(hours=5)
         storage = self.create_fake_storage(entry_date=entry_date)
 
-        withdrawal_date = now - datetime.timedelta(hours=5)
+        withdrawal_date = now - datetime.timedelta(hours=10)
         storage.withdrawal_date = withdrawal_date
         with self.assertRaises(exceptions.ValidationError):
             storage.save()

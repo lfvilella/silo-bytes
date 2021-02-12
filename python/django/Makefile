@@ -13,6 +13,7 @@ build: delete-container ## Build the container
 	@[ -f .env ] || cp template.env .env
 	@docker-compose build
 	@docker-compose up -d
+	@docker-compose exec backend /bin/bash -c "./manage.py migrate"
 
 createsuperuser: start ## Run tests
 	@docker-compose exec backend /bin/bash -c "./manage.py createsuperuser"
@@ -20,7 +21,7 @@ createsuperuser: start ## Run tests
 format: ## Style code
 	@docker-compose exec backend /bin/bash -c "isort . && black -l 79 . && flake8 ."
 
-test: start ## Run tests
+test: ## Run tests
 	@docker-compose exec backend /bin/bash -c "./manage.py test"
 
 restart: ## Restart the container

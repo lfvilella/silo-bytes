@@ -16,9 +16,14 @@ class Client(core.models.BaseModel):
     def __str__(self):
         return f'{self.name} - {self.phone}'
 
+    class Meta:
+        unique_together = ('name', 'phone')
+
 
 class Product(core.models.BaseModel):
-    name = models.CharField(max_length=255, null=False, blank=False)
+    name = models.CharField(
+        max_length=255, unique=True, null=False, blank=False
+    )
     description = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
@@ -26,7 +31,9 @@ class Product(core.models.BaseModel):
 
 
 class Silo(core.models.BaseModel):
-    name = models.CharField(max_length=255, null=False, blank=False)
+    name = models.CharField(
+        max_length=255, unique=True, null=False, blank=False
+    )
     description = models.CharField(max_length=255, null=True, blank=True)
     size = models.FloatField(null=False, blank=False)
 
@@ -40,7 +47,7 @@ class Storage(core.models.BaseModel):
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
     annotations = models.TextField(null=True, blank=True)
     quantity = models.FloatField(null=False, blank=False)
-    entry_date = models.DateTimeField(auto_now_add=True)
+    entry_date = models.DateTimeField()
     withdrawal_date = models.DateTimeField()
     payment_method = models.CharField(
         max_length=20,
