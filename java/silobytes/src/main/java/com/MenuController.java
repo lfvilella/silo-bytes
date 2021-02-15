@@ -1,20 +1,20 @@
 package com;
 
-import java.io.IOException;
-import javafx.fxml.FXML;
-
 /**
  *
  * @author felipe
  */
-public class MenuController {
-    @FXML
-    private void goToCreateUser() throws IOException{
-        App.setRoot("createUser");
-    }
-    
-    @FXML
-    private void quit(){
-        System.exit(0);
-    }
+import java.io.IOException;
+import javafx.fxml.FXML;
+
+public class MenuController extends BaseController {
+//    @FXML
+//    private void goToCreateUser() throws IOException{
+//        App.setRoot("createUser");
+//    }
+//    
+//    @FXML
+//    private void quit(){
+//        System.exit(0);
+//    }
 }

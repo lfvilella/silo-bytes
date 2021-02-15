@@ -47,9 +47,9 @@ public class FileTest {
 
 //    @org.junit.jupiter.api.Test
 //    public void testListUsers() {
-//        ArrayList<User> list = File.listar();
+//        ArrayList<User> list = File.userList();
 //        for (User user: list) {
-//            System.out.println(user.getNome());
+//            System.out.println(user.getUsername());
 //        }
 //    }
 }

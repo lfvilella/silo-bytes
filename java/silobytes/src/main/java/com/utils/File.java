@@ -1,5 +1,9 @@
 package com.utils;
 
+/**
+ * @author felipe
+ */
+
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,14 +15,12 @@ import java.util.ArrayList;
 
 import com.models.User;
 
-/**
- * @author felipe
- */
+
 public class File {
 
-    public static void inserir(User usuario) {
+    public static void saveUser(User usuario) {
         try {
-            ArrayList<User> atual = listar();
+            ArrayList<User> atual = userList();
             atual.add(usuario);
             FileOutputStream fos = new FileOutputStream(Info.PATH_FILE_USERS);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -29,7 +31,7 @@ public class File {
         }
     }
 
-    public static ArrayList<User> listar() {
+    public static ArrayList<User> userList() {
         ArrayList<User> lista = new ArrayList();
         FileInputStream fis = null;
         try {
