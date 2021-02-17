@@ -80,3 +80,24 @@ class TestStorage(base.BaseTest):
         self.assertEquals(
             date.isoformat(), storage.withdrawal_date.isoformat()
         )
+
+    def test_current_cost(self):
+        now = datetime.datetime.now(tz=pytz.utc)
+        entry_date = now - datetime.timedelta(days=5)
+        withdrawal_date = now + datetime.timedelta(days=30)
+        storage = self.create_fake_storage(
+            entry_date=entry_date,
+            withdrawal_date=withdrawal_date,
+            price_per_day=10,
+        )
+        expected_cost = 5 * 10
+        self.assertEquals(expected_cost, storage.current_cost)
+
+    def test_total_cost(self):
+        now = datetime.datetime.now(tz=pytz.utc)
+        withdrawal_date = now + datetime.timedelta(days=30)
+        storage = self.create_fake_storage(
+            entry_date=now, withdrawal_date=withdrawal_date, price_per_day=10,
+        )
+        expected_cost = 30 * 10
+        self.assertEquals(expected_cost, storage.total_cost)

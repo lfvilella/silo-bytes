@@ -28,6 +28,8 @@ class StorageAdmin(admin.ModelAdmin):
         'get_silo_name',
         'get_client_name',
         'get_product_name',
+        'current_cost',
+        'total_cost',
         'quantity',
         'entry_date',
         'withdrawal_date',

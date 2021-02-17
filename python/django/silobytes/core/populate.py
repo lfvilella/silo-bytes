@@ -63,6 +63,7 @@ def create_storage(
             silo=silo,
             product=product,
             quantity=200,
+            price_per_day=4,
             entry_date=entry_date,
             withdrawal_date=withdrawal_date,
         )

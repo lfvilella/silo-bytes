@@ -43,4 +43,4 @@ $ python manage.py shell
 >>> populate.run()
 ```
 
-*Control + D or Control + C to quit*
+*`Control + D` or `Control + C` to quit*

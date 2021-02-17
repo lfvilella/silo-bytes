@@ -54,6 +54,7 @@ class BaseTest(test.TestCase):
         silo=None,
         product=None,
         quantity=None,
+        price_per_day=None,
         entry_date=None,
         withdrawal_date=None,
     ):
@@ -67,6 +68,8 @@ class BaseTest(test.TestCase):
             product = self.product
         if not quantity:
             quantity = random.randint(100, 450)
+        if not price_per_day:
+            price_per_day = round(random.uniform(100, 200), 2)
         if not entry_date:
             entry_date = now
         if not withdrawal_date:
@@ -77,6 +80,7 @@ class BaseTest(test.TestCase):
             silo=silo,
             product=product,
             quantity=quantity,
+            price_per_day=price_per_day,
             entry_date=entry_date,
             withdrawal_date=withdrawal_date,
         )

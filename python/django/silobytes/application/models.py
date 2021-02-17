@@ -1,5 +1,6 @@
 import datetime
 
+import pytz
 from django.core import exceptions
 from django.db import models
 
@@ -47,6 +48,7 @@ class Storage(core.models.BaseModel):
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
     annotations = models.TextField(null=True, blank=True)
     quantity = models.FloatField(null=False, blank=False)
+    price_per_day = models.FloatField(null=False, blank=False)
     entry_date = models.DateTimeField()
     withdrawal_date = models.DateTimeField()
     payment_method = models.CharField(
@@ -63,6 +65,25 @@ class Storage(core.models.BaseModel):
 
     def __str__(self):
         return f'{self.client.name} - {self.silo.name}'
+
+    @property
+    def current_cost(self):
+        now = datetime.datetime.now(tz=pytz.utc)
+        if now <= self.entry_date:
+            return 0.0
+
+        if now >= self.withdrawal_date:
+            return self.total_cost
+
+        period = now - self.entry_date
+        total = period.days * self.price_per_day
+        return total
+
+    @property
+    def total_cost(self):
+        period = self.withdrawal_date - self.entry_date
+        total = period.days * self.price_per_day
+        return total
 
     def clean_entry_date(self):
         if self.withdrawal_date and self.entry_date >= self.withdrawal_date:
