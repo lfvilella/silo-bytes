@@ -19,6 +19,8 @@ This project was thought to be easy for external comprehensions, that is it was 
 [![Screen Shot 2021-02-19 at 10 59 11](https://user-images.githubusercontent.com/45940140/108513552-86b14e00-72a1-11eb-8a9e-ae20b87b655c.png)](https://www.figma.com/file/C9ljnxN1BeChfeAzhyxb69/SiloBytes?node-id=0%3A1)
 
 
+### Quick video about web system.
+[<img width="1168" alt="Screen Shot 2021-02-19 at 11 12 07" src="https://user-images.githubusercontent.com/45940140/108514991-55d21880-72a3-11eb-8131-7c2c9722290f.png">](https://youtu.be/-iUIt0smZFA)
 
 
 ### Tech Stack
