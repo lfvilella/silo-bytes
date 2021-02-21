@@ -3,16 +3,31 @@ import random
 import uuid
 
 import pytz
-from django import test
+import rest_framework.test
+from django.contrib.auth.models import User
 
 from application import models
 
 
-class BaseTest(test.TestCase):
+class BaseTest(rest_framework.test.APITestCase):
     def setUp(self):
-        self.client = self.create_fake_client()
+        self.user = self.create_fake_user(
+            'Luffy', 'monkeydluffy@mail.com', 'OnePiece'
+        )
+        self.internal_client = self.create_fake_client()
         self.silo = self.create_fake_silo()
         self.product = self.create_fake_product()
+
+    def authenticate(self, user_data=None):
+        if not user_data:
+            user_data = {'username': 'Luffy', 'password': 'OnePiece'}
+
+        token = self.client.post('/api/auth/login/', data=user_data).json()
+        self.client.credentials(HTTP_AUTHORIZATION=f'Token {token["token"]}')
+
+    def create_fake_user(self, username, email, password):
+        user = User.objects.create_user(username, email, password)
+        return user
 
     def create_fake_client(self, name=None, email=None, phone=None):
         if not name:
@@ -61,7 +76,7 @@ class BaseTest(test.TestCase):
         now = datetime.datetime.now(tz=pytz.utc)
 
         if not client:
-            client = self.client
+            client = self.internal_client
         if not silo:
             silo = self.silo
         if not product:
