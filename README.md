@@ -23,8 +23,7 @@ This project was thought to be easy for external comprehensions, that is it was 
 [<img width="1168" alt="Screen Shot 2021-02-19 at 11 12 07" src="https://user-images.githubusercontent.com/45940140/108514991-55d21880-72a3-11eb-8131-7c2c9722290f.png">](https://youtu.be/-iUIt0smZFA)
 
 
-### Tech Stack
----
+# Tech Stack
 - [Pyhon](https://www.python.org/)
 - [Django](https://docs.djangopro)
 - [Django-Rest](https://www.django-rest-framework.org/)
