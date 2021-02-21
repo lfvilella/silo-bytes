@@ -1,9 +1,8 @@
-from django.contrib import auth
-
-from django_filters.rest_framework import DjangoFilterBackend
 import knox.views
+from django.contrib import auth
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, permissions, viewsets
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from rest_framework import permissions, viewsets, filters
 
 from . import models, serializers
 

@@ -46,7 +46,7 @@ class TestStorageAPI(base.BaseTest):
                 'entry_date': storage2.entry_date.isoformat().replace(
                     '+00:00', 'Z'
                 ),
-                'withdrawal_date': storage2.withdrawal_date.isoformat().replace(
+                'withdrawal_date': storage2.withdrawal_date.isoformat().replace(  # noqa: E501
                     '+00:00', 'Z'
                 ),
                 'payment_method': storage2.payment_method,

@@ -1,11 +1,10 @@
 import datetime
 import random
 import uuid
-import pytz
 
-from django.contrib.auth.models import User
-import django.test
+import pytz
 import rest_framework.test
+from django.contrib.auth.models import User
 
 from application import models
 
