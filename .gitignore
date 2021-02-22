@@ -126,3 +126,4 @@ dmypy.json
 
 
 _java/
+**/**/.DS_Store
