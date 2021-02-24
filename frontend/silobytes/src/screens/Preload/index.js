@@ -7,7 +7,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 import Api from '../../Api';
 
-import BarberLogo from '../../assets/barber.svg'
+import SiloLogo from '../../assets/silo.svg';
 
 export default () => {
     const { dispatch: userDispatch } = useContext(UserContext);
@@ -21,15 +21,15 @@ export default () => {
                 if (response.token) {
                     await AsyncStorage.setItem('token', response.token);
 
-                    userDispatch({
-                        type: 'setAvatar',
-                        payload: {
-                            avatar: response.data.avatar
-                        }
-                    });
+                    // userDispatch({
+                    //     type: 'setAvatar',
+                    //     payload: {
+                    //         avatar: response.data.avatar
+                    //     }
+                    // });
 
                     navigation.reset({
-                        routes: [{ name: 'MainTab' }]
+                        routes: [{ name: 'Home' }]
                     });
                 }
                 else {
@@ -46,7 +46,7 @@ export default () => {
 
     return (
         <Container>
-            <BarberLogo width="100%" height="160" />
+            <SiloLogo width="100%" height="230" />
             <LoadingIcon size="large" color="#FFFFFF" />
         </Container>
     );

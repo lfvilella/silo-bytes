@@ -53,6 +53,7 @@ class TestStorageAPI(base.BaseTest):
                 'status': storage2.status,
                 'current_cost': storage2.current_cost,
                 'total_cost': storage2.total_cost,
+                'current_status': storage.current_status,
             },
             {
                 'id': storage.id,
@@ -86,6 +87,7 @@ class TestStorageAPI(base.BaseTest):
                 'status': storage.status,
                 'current_cost': storage.current_cost,
                 'total_cost': storage.total_cost,
+                'current_status': storage.current_status,
             },
         ]
         self.assertEqual(response.json(), expected_response)

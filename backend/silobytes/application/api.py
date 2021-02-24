@@ -1,7 +1,14 @@
 import knox.views
 from django.contrib import auth
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, permissions, viewsets
+from rest_framework import (
+    filters,
+    permissions,
+    viewsets,
+    views,
+    status,
+    response,
+)
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 
 from . import models, serializers
@@ -16,6 +23,16 @@ class LoginAPI(knox.views.LoginView):
         user = serializer.validated_data['user']
         auth.login(request, user)
         return super(LoginAPI, self).post(request, format=None)
+
+
+class VerifyAPI(views.APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request):
+        return response.Response(
+            {'token': request.headers['Authorization']},
+            status=status.HTTP_200_OK,
+        )
 
 
 class StorageViewSet(viewsets.ModelViewSet):
