@@ -16,7 +16,8 @@ This project was thought to be easy for external comprehensions, that is it was 
 
 
 ### Simple Screens Design for App Mobile
-[![Screen Shot 2021-02-19 at 10 59 11](https://user-images.githubusercontent.com/45940140/108513552-86b14e00-72a1-11eb-8a9e-ae20b87b655c.png)](https://www.figma.com/file/C9ljnxN1BeChfeAzhyxb69/SiloBytes?node-id=0%3A1)
+[<img width="928" alt="Screen Shot 2021-02-24 at 12 06 09" src="https://user-images.githubusercontent.com/45940140/109020578-d5dbf200-7698-11eb-84fa-6acd20eb34f0.png">
+](https://www.figma.com/file/C9ljnxN1BeChfeAzhyxb69/SiloBytes?node-id=0%3A1)
 
 
 ### Quick video about web system.
