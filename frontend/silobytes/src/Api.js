@@ -61,4 +61,19 @@ export default {
         const json = await request.json();
         return json;
     },
+    updateStorageWithdrawToNow: async (id) => {
+        const token = await AsyncStorage.getItem('token');
+
+        const request = await fetch(`${BASE_API}/storages/${id}/withdraw-now/`, {
+            method: 'PATCH',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+        });
+
+        const json = await request.json();
+        return json;
+    },
 };

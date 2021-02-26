@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RefreshControl } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import Api from '../../Api';
 
@@ -20,6 +21,8 @@ import StorageItem from '../../components/StorageItem';
 import SearchIcon from '../../assets/loupe.svg'
 
 export default () => {
+    const navigation = useNavigation();
+
     const [searchText, setSearchText] = useState('');
     const [loading, setLoading] = useState(false);
     const [list, setList] = useState([]);
@@ -30,12 +33,17 @@ export default () => {
         setList([]);
 
         let response = await Api.listStorage(searchText);
-        if (response.detail != 'Invalid token.') {
+        if (response.detail != 'Invalid token.' && !response.error) {
             setList(response);
         }
-        else {
-            alert('Erro: ' + response)
+        else if (response.detail == 'Invalid token.') {
+            navigation.navigate('SignIn');
+            alert('Erro: ' + response.detail);
         }
+        else {
+            alert('Erro: ' + response.detail || response.detail);
+        }
+
         setLoading(false);
     }
 
@@ -55,7 +63,7 @@ export default () => {
             }>
                 <SearchArea>
                     <SearchInput
-                        placeholder="Onde você está?"
+                        placeholder="Search storage ..."
                         placeholderTextColor="#35512B"
                         value={searchText}
                         onChangeText={text => setSearchText(text)}

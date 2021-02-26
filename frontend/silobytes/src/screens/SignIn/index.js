@@ -44,7 +44,7 @@ export default () => {
                 });
             }
             else {
-                alert('E-mail e/ou senha errado(s) !')
+                alert('Username e/ou senha errado(s) !')
             }
         }
         else {

@@ -38,33 +38,11 @@ const ProductText = styled.Text`
 `;
 
 
-const CircleRed = styled.View`
+const Circle = styled.View`
     width: 40px;
     height: 40px;
     border-radius: 20px;
     background-color: #FD5C5C;
-    border: 2px solid #FFFFFF;
-    position: absolute;
-    top: -25px;
-    right: 5px;
-`
-
-const CircleYellow = styled.View`
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: #FFD064;
-    border: 2px solid #FFFFFF;
-    position: absolute;
-    top: -25px;
-    right: 5px;
-`
-
-const CircleGrey = styled.View`
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: #B8B6B6;
     border: 2px solid #FFFFFF;
     position: absolute;
     top: -25px;
@@ -95,13 +73,11 @@ export default ({ data }) => {
     const navigation = useNavigation();
 
     const handleClick = () => {
-        console.log('click')
-        // navigation.navigate('Barber', {
-        //     id: data.id,
-        //     avatar: data.avatar,
-        //     name: data.name,
-        //     stars: data.stars
-        // });
+        navigation.navigate('Storage', {
+            id: data.id,
+            siloName: data.silo.name,
+            currentStatus: data.current_status,
+        });
     }
 
     return (
@@ -114,13 +90,13 @@ export default ({ data }) => {
 
             <RightArea>
                 {data.current_status === 'occupied' &&
-                    <CircleRed />
+                    <Circle />
                 }
                 {data.current_status === 'scheduled' &&
-                    <CircleYellow />
+                    <Circle style={{ backgroundColor: '#FFD064' }} />
                 }
                 {data.current_status === 'disabled' &&
-                    <CircleGrey />
+                    <Circle style={{ backgroundColor: '#B8B6B6' }} />
                 }
                 <DateText>{data.entry_date.slice(0, 10)} - {data.withdrawal_date.slice(0, 10)}</DateText>
                 <SeeStorageButton>
