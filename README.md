@@ -32,6 +32,13 @@ This project was thought to be easy for external comprehensions, that is it was 
 - [Docker](https://docs.docker.com/)
 - [Docker-Compose](https://docs.docker.com/compose/install/)
 
+# GIFs
+![1](https://user-images.githubusercontent.com/45940140/109242808-9279a480-77ba-11eb-9cdb-d9dedf653ff7.gif)
+![2](https://user-images.githubusercontent.com/45940140/109242818-96a5c200-77ba-11eb-89dc-d928f3e0e622.gif)
+![3](https://user-images.githubusercontent.com/45940140/109242827-986f8580-77ba-11eb-9e39-dfd00ef135da.gif)
+![4](https://user-images.githubusercontent.com/45940140/109242843-9c9ba300-77ba-11eb-8a9e-d935adfeb205.gif)
+![5](https://user-images.githubusercontent.com/45940140/109242849-a02f2a00-77ba-11eb-9827-b0ffca4bfbf8.gif)
+
 # Backend Guide to Run Locally
 
 *Needs docker installed.*
