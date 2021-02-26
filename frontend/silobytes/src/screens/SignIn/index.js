@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -20,7 +20,6 @@ import UserIcon from '../../assets/user_icon.svg';
 import LockIcon from '../../assets/lock_icon.svg';
 
 export default () => {
-    const { dispatch: userDispatch } = useContext(UserContext);
     const navigation = useNavigation();
 
     const [usernameField, setUsernameField] = useState('');
@@ -31,13 +30,6 @@ export default () => {
             let json = await Api.signIn(usernameField, passwordField);
             if (json.token) {
                 await AsyncStorage.setItem('token', `Token ${json.token}`);
-
-                // userDispatch({
-                //     type: 'setAvatar',
-                //     payload: {
-                //         avatar: json.data.avatar
-                //     }
-                // });
 
                 navigation.reset({
                     routes: [{ name: 'Home' }]

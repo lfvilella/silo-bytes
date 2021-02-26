@@ -53,23 +53,23 @@ export default () => {
 
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        const getStorage = async () => {
-            setLoading(true);
-            let response = await Api.getStorage(storageInfo.id);
-            if (response.detail != 'Invalid token.' && !response.error) {
-                setStorageInfo(response);
-            }
-            else if (response.detail == 'Invalid token.') {
-                navigation.navigate('SignIn');
-                alert('Erro: ' + response.detail);
-            }
-            else {
-                alert('Erro: ' + response.detail || response.detail);
-            }
-            setLoading(false);
+    const getStorage = async () => {
+        setLoading(true);
+        let response = await Api.getStorage(storageInfo.id);
+        if (response.detail != 'Invalid token.' && !response.error) {
+            setStorageInfo(response);
         }
+        else if (response.detail == 'Invalid token.') {
+            navigation.navigate('SignIn');
+            alert('Erro: ' + response.detail);
+        }
+        else {
+            alert('Erro: ' + response.detail || response.detail);
+        }
+        setLoading(false);
+    }
 
+    useEffect(() => {
         getStorage();
     }, []);
 
