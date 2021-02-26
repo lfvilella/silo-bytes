@@ -67,6 +67,17 @@ class Storage(core.models.BaseModel):
         return f'{self.client.name} - {self.silo.name}'
 
     @property
+    def current_status(self):
+        now = datetime.datetime.now(tz=pytz.utc)
+        if now <= self.entry_date:
+            return 'scheduled'
+
+        if now >= self.withdrawal_date:
+            return 'disabled'
+
+        return 'occupied'
+
+    @property
     def current_cost(self):
         now = datetime.datetime.now(tz=pytz.utc)
         if now <= self.entry_date:

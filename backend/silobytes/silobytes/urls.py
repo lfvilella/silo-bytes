@@ -16,6 +16,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', go_to_admin),
     path('api/', include(routes.router.urls)),
+    path('api/auth/verify/', api.VerifyAPI.as_view(), name='verify'),
     path('api/auth/login/', api.LoginAPI.as_view(), name='login'),
     path('api/auth/logout/', knox.views.LogoutView.as_view(), name='logout'),
     path(

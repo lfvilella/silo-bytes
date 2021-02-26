@@ -49,6 +49,7 @@ class StorageSerializer(serializers.ModelSerializer):
             'status',
             'current_cost',
             'total_cost',
+            'current_status',
         )
 
     def to_representation(self, instance):
