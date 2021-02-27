@@ -10,7 +10,7 @@ The object is to implement the silos control system.
 
 ## Simple Data Modeling
 
-This project was thought to be easy for external comprehensions, that is it was not thought about scalability and future features.
+This project was designed to be easily comprehend, it was not thought about scalability and future features.
 
 ![Screen Shot 2021-02-10 at 23 01 22](https://user-images.githubusercontent.com/45940140/107595602-ebaadb00-6bf3-11eb-9351-9e77bd002421.png)
 
